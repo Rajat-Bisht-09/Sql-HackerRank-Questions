@@ -1,44 +1,7 @@
-CREATE TABLE IF NOT EXISTS `1_Type_of_Triangle` (
-    `Column_1` VARCHAR(171) CHARACTER SET utf8,
-    `Column_2` VARCHAR(2) CHARACTER SET utf8,
-    `Column_3` VARCHAR(105) CHARACTER SET utf8,
-    `Column_4` VARCHAR(20) CHARACTER SET utf8
-);
-INSERT INTO `1_Type_of_Triangle` VALUES ('Q1. Type of Triangle',NULL,NULL,NULL),
-	('Write a query identifying the type of each record in the TRIANGLES table using its three side lengths. Output one of the following statements for each record in the table:',NULL,NULL,NULL),
-	('Equilateral: It''s a triangle with 3 sides of equal length.',NULL,NULL,NULL),
-	('Isosceles: It''s a triangle with 2 sides of equal length.',NULL,NULL,NULL),
-	('Scalene: It''s a triangle with 3 sides of differing lengths.',NULL,NULL,NULL),
-	('Not A Triangle: The given values of A',' B',' and C don''t form a triangle.',NULL),
-	('The TRIANGLES table is described as follows:',NULL,NULL,NULL),
-	(NULL,NULL,NULL,NULL),
-	(NULL,NULL,NULL,NULL),
-	(NULL,NULL,NULL,NULL),
-	(NULL,NULL,NULL,NULL),
-	(NULL,NULL,NULL,NULL),
-	('Each row in the table denotes the lengths of each of a triangle''s three sides.',NULL,NULL,NULL),
-	('Sample Input',NULL,NULL,NULL),
-	(NULL,NULL,NULL,NULL),
-	(NULL,NULL,NULL,NULL),
-	(NULL,NULL,NULL,NULL),
-	(NULL,NULL,NULL,NULL),
-	(NULL,NULL,NULL,NULL),
-	('Sample Output',NULL,NULL,NULL),
-	('Isosceles',NULL,NULL,NULL),
-	('Equilateral',NULL,NULL,NULL),
-	('Scalene',NULL,NULL,NULL),
-	('Not A Triangle',NULL,NULL,NULL),
-	('Explanation',NULL,NULL,NULL),
-	('Values in the tuple (20','20','23) form an Isosceles triangle',' because A ? B.'),
-	('Values in the tuple (20','20','20) form an Equilateral triangle',' because A ? B ? C. '),
-	('Values in the tuple (20','21','22) form a Scalene triangle',' because A ? B ? C.'),
-	('Values in the tuple (1','14','30) cannot form a triangle because the combined value of sides A and B is not larger than that of side C.',NULL),
-	('Ans.',NULL,NULL,NULL),
-	('    SELECT ',NULL,NULL,NULL),
-	('    	   CASE WHEN (A+B>C) AND (B+C>A) AND (A+C>B) THEN',NULL,NULL,NULL),
-	('       CASE ',NULL,NULL,NULL),
-	('                WHEN (A=B) AND (B=C) AND (A=C) THEN ''Equilateral''',NULL,NULL,NULL),
-	('                WHEN (A=B) OR (B=C) OR (A=C) THEN ''Isosceles''',NULL,NULL,NULL),
-	('                 ELSE ''Scalene'' END',NULL,NULL,NULL),
-	('       ELSE ''Not A Triangle'' END',NULL,NULL,NULL),
-	('    FROM TRIANGLES',NULL,NULL,NULL);
+SELECT CASE WHEN (A+B>C) AND (B+C>A) AND (A+C>B) THEN
+	CASE 
+	  WHEN (A=B) AND (B=C) AND (A=C) THEN 'Equilateral'
+	  WHEN (A=B) OR (B=C) OR (A=C) THEN 'Isosceles'
+	  ELSE 'Scalene' END
+ 	ELSE 'Not A Triangle' END
+FROM TRIANGLES
