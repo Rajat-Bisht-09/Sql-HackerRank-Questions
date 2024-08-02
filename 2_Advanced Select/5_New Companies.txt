@@ -6,6 +6,3 @@ INNER JOIN COMPANY C
 ON E.company_code = C.company_code
 GROUP BY E.company_code, C.founder
 ORDER BY E.company_code
-
-
-
