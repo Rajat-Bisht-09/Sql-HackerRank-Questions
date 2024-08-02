@@ -4,5 +4,3 @@ SELECT N, CASE
             ELSE 'Leaf' END AS NODE
 FROM BST
 ORDER BY N
-
-
