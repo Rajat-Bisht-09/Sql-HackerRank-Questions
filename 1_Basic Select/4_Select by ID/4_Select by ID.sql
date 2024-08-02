@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS `4_Select_by_ID` (
+    `Column_1` VARCHAR(15) CHARACTER SET utf8
+);
+INSERT INTO `4_Select_by_ID` VALUES ('SELECT * '),
+	('FROM CITY '),
+	('WHERE ID = 1661');
